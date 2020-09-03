@@ -30,8 +30,11 @@
 *.exe
 *.out
 *.app
+.tags
 
 compile_commands.json
 build/
 .clangd/
 
+DevLibs/OpenSource/
+DevLibs/Packages/
