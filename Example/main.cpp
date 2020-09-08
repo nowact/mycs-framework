@@ -1,15 +1,19 @@
 #include <iostream>
 
 #include "TradingProgram.h"
+#include "UsualHeader.h"
 
 int main(int argc, char *argv[]) {
 
-    std::cout << "program start" << std::endl;
+
+    Logger::init();
+
+    LOGI("program start");
 
     TradingProgram tp;
     tp.run();    
 
-    std::cout << "program finish" << std::endl;
+    LOGI("program finish");
 
     return 0;
 }

@@ -9,11 +9,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(ka_include_dirs ${CMAKE_CURRENT_SOURCE_DIR} 
     "../DevLibs/OpenSource/BoostInstall/include"
+    "../DevLibs/OpenSource/spdlog/include"
 #    StrategyEngine
 )
 
 
 set(ka_cpp_file_list
+    Logger.cpp
     TradingProgram.cpp
     MarketData/MarketDataProvider.cpp
     #OrderService
@@ -22,5 +24,6 @@ set(ka_cpp_file_list
 
 add_executable(ProgramTrade main.cpp ${ka_cpp_file_list})
 target_include_directories(ProgramTrade PUBLIC ${ka_include_dirs})
+#target_link_directories(ProgramTrade PUBLIC "../DevLibs/OpenSource/BoostInstall/lib")
 target_link_libraries(ProgramTrade pthread)
 
