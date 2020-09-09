@@ -4,8 +4,8 @@ my c++ server framework
 features
 
 . thread manager: preemptive/dispatch/pipeline
-. tcp
-. message
+. tcp/session manager
+. message/parse
 . log/option parser
 . cache/database
 . signal handle

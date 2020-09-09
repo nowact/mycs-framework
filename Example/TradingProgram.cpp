@@ -5,6 +5,8 @@
 #include <iostream>
 #include <functional>
 
+#include "UsualHeader.h" 
+
 TradingProgram::TradingProgram() :
     _work_guard(boost::asio::make_work_guard(_ioctx)) {
     _mdp.setMarketDataSubscriber(this);
@@ -19,16 +21,17 @@ void TradingProgram::run() {
 }
 
 void TradingProgram::onMarketDataUpdate(const boost::shared_ptr<MarketData> &market_data) {
-    std::cout << "onMarketDataUpdate: " << std::endl;
+    LOGD("");
     _se.feedMarketData(market_data);
 }
 
 void TradingProgram::onTradingInstruction(const char *instruction) {
-    std::cout << "onTradingInstruction: " << instruction << std::endl;
+    LOGD("");
     //_ioctx.post([](int a){});
     boost::asio::post(_ioctx, std::bind(&TradingProgram::processTradingInstruction, this, instruction));
 }
 
 void TradingProgram::processTradingInstruction(const char *instruction) {
-    std::cout <<"processTradingInstruction" << std::endl;
+    LOGD("");
 }
+

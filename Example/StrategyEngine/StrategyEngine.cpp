@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Utils/Utils.h"
+#include "UsualHeader.h"
 
 
 StrategyEngine::StrategyEngine() :
@@ -16,15 +17,17 @@ void StrategyEngine::setObserver(StrategyEngineObserver *obs) {
 }
 
 void StrategyEngine::feedMarketData(const boost::shared_ptr<MarketData> &market_data) {
-    std::cout << "StrategyEngine::feedMarketData()" <<std::endl;
+    LOGD("");
     boost::asio::post(_ioctx, std::bind(&StrategyEngine::processMarketData, this, market_data));
 }
 
 void StrategyEngine::processMarketData(const boost::shared_ptr<MarketData> &market_data) {
-    std::cout << "StrategyEngine::processMarketData()" <<std::endl;
+    LOGD("");
+    issueTradingInstruction();
 }
 
 void StrategyEngine::issueTradingInstruction() {
+    LOGD("");
     if (observer) {
         observer->onTradingInstruction("buy 600001 500"); 
     }
@@ -35,7 +38,7 @@ void StrategyEngine::run() {
 }
 
 void StrategyEngine::doRun() { 
-    std::cout << "StrategyEngine::doRun()" <<std::endl;
+    LOGD("");
     _ioctx.run();    
 }
 
