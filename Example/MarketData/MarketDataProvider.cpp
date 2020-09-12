@@ -124,7 +124,9 @@ void MarketDataProvider::OnRspUnSubForQuoteRsp(CThostFtdcSpecificInstrumentField
 ///深度行情通知
 void MarketDataProvider::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData) {
     LOGD("");
-
+    if (pDepthMarketData) {
+        LOGD("describe pDepthMarketData {}", CTPApiHelper::describe(*pDepthMarketData, " "));
+    }
 }
 
 ///询价通知

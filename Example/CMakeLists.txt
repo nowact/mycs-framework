@@ -38,6 +38,7 @@ target_link_directories(ProgramTrade PUBLIC ${ctp_library_path})
 target_link_libraries(ProgramTrade pthread thostmduserapi_se)
 
 set(ka_unit_test_file_list
+    UnitTest/TestCTPApiHelper.cpp
     UnitTest/TestMarketDataProvider.cpp
     )
 
